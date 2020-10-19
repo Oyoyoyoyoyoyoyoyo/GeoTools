@@ -81,9 +81,11 @@ public class ImageLab {
 
         JParameterListWizard wizard =
                 new JParameterListWizard("Image Lab", "Fill in the following layers", list);
+        //显示对话框
         int finish = wizard.showModalDialog();
 
         if (finish != JWizard.FINISH) {
+            //正常退出程序
             System.exit(0);
         }
         File imageFile = (File) wizard.getConnectionParameters().get("image");
