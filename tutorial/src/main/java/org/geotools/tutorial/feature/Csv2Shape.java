@@ -60,10 +60,10 @@ public class Csv2Shape {
                 DataUtilities.createType(
                         "Location",
                         "the_geom:Point:srid=4326,"
-                                + // <- the geometry attribute: Point type
+                                + // 属性字段
                                 "name:String,"
-                                + // <- a String attribute
-                                "number:Integer" // a number attribute
+                                + // 属性字段
+                                "number:Integer"
                 );
         System.out.println("TYPE:" + TYPE);
 
@@ -71,15 +71,13 @@ public class Csv2Shape {
         /**
          * 创建features
          */
-        /* A list to collect features as we create them.
-         */
         List<SimpleFeature> features = new ArrayList<>();
         /*
          * GeometryFactory will be used to create the geometry attribute of each feature,
          * using a Point object for the location.
          */
         GeometryFactory geometryFactory = JTSFactoryFinder.getGeometryFactory();
-
+        //feature建造器
         SimpleFeatureBuilder featureBuilder = new SimpleFeatureBuilder(TYPE);
 
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
@@ -96,7 +94,6 @@ public class Csv2Shape {
                     double longitude = Double.parseDouble(tokens[1]);
                     String name = tokens[2].trim();
                     int number = Integer.parseInt(tokens[3].trim());
-
                     /* Longitude (= x coord) first ! */
                     Point point = geometryFactory.createPoint(new Coordinate(longitude, latitude));
                     featureBuilder.add(point);
