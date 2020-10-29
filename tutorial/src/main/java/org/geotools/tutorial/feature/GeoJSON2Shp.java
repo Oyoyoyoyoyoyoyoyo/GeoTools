@@ -57,6 +57,7 @@ public class GeoJSON2Shp {
             JSONObject feature0 = JSONObject.parseObject(features.get(0).toString());
             //数据字段
             JSONObject attrs0 = (JSONObject) feature0.get("properties");
+            System.out.println("attrs0 = " + attrs0);
             //geom类型
             String strType = ((JSONObject) feature0.get("geometry")).getString("type").toString();
             final SimpleFeatureType TYPE = getSimpleType(file, attrs0, strType);
@@ -82,12 +83,14 @@ public class GeoJSON2Shp {
         System.out.println("当前程序耗时：" + (endTime - startTime) + "ms");
     }
 
+
     /**
      * 获取SimpleFeatureType
-     *
      * @param file
      * @param attrs0
+     * @param strType geom数据类型
      * @return
+     * @throws Exception
      */
     public static SimpleFeatureType getSimpleType(File file, JSONObject attrs0, String strType) throws Exception {
 

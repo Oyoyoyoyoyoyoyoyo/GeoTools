@@ -41,6 +41,7 @@ import org.opengis.feature.simple.SimpleFeatureType;
 public class Csv2Shape {
 
     public static void main(String[] args) throws Exception {
+
         // Set cross-platform look & feel for compatability
         UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
 

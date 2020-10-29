@@ -54,7 +54,7 @@ public class ReadShape {
             while (itertor.hasNext()) {
                 SimpleFeature feature = itertor.next();
                 List<Object> attributes = feature.getAttributes();
-                System.out.println("attributes--:"+Arrays.toString(attributes.toArray()));
+                //System.out.println("attributes--:"+Arrays.toString(attributes.toArray()));
             }
             itertor.close();
         } catch (Exception e) {

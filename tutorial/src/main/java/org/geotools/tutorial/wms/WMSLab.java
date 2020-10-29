@@ -24,6 +24,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import org.geotools.map.MapContent;
 import org.geotools.ows.wms.Layer;
+import org.geotools.ows.wms.WMSCapabilities;
 import org.geotools.ows.wms.WebMapServer;
 import org.geotools.ows.wms.map.WMSLayer;
 import org.geotools.swing.JMapFrame;
@@ -42,7 +43,8 @@ public class WMSLab extends JFrame {
         // display a data store file chooser dialog for shapefiles
         URL capabilitiesURL = WMSChooser.showChooseWMS();
         if (capabilitiesURL == null) {
-            System.exit(0); // canceled
+            System.exit(0);
+            // canceled
         }
         WebMapServer wms = new WebMapServer(capabilitiesURL);
 
